@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="5000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dresscasualrents.DressController">
+    <children>
+        <GridPane prefHeight="571.0" prefWidth="778.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="14.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="89.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.0" minWidth="10.0" prefWidth="201.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="452.0" minWidth="0.0" prefWidth="78.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="452.0" minWidth="10.0" prefWidth="382.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="285.0" minHeight="10.0" prefHeight="114.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="285.0" minHeight="0.0" prefHeight="49.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="285.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="285.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="285.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="213.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="269.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="Complete Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Address" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label text="Dress Type" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label text="Date Barrowed" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label text="Date Returned" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <DatePicker fx:id="returnRentedPicker" prefHeight="25.0" prefWidth="233.0" promptText="Return Rented" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                <DatePicker fx:id="dateRentedPicker" prefHeight="25.0" prefWidth="234.0" promptText="Date Rented" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                <TextField fx:id="nameField" promptText="Name" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <TextField fx:id="addressField" promptText="Address" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <ComboBox fx:id="dressTypeField" prefHeight="25.0" prefWidth="237.0" promptText="Dress Type" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Casual" />
+                            <String fx:value="Formal" />
+                            <String fx:value="Semi-Formal" />
+                            <String fx:value="Dress Gown" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <HBox prefHeight="57.0" prefWidth="207.0" spacing="15.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                    <children>
+                        <AnchorPane />
+                          <Button mnemonicParsing="false" onAction="#handleUpdateDress" prefHeight="25.0" prefWidth="77.0" text="update" />
+                        <Button mnemonicParsing="false" onAction="#handleDeleteDress" prefHeight="25.0" prefWidth="79.0" styleClass="btn btn-danger" text="delete" />
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#handleNewDress" prefHeight="25.0" prefWidth="82.0" styleClass="btn btn-primary" text="save" />
+                    </children>
+                </HBox>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                    <children>
+                        <TableView fx:id="dressTable" layoutX="-64.0" layoutY="24.0" prefHeight="357.0" prefWidth="436.0">
+                            <columns>
+                                <TableColumn fx:id="nameColumn" prefWidth="57.0" text="Name" />
+                                <TableColumn fx:id="addressColumn" prefWidth="68.0" text="Address" />
+                                <TableColumn fx:id="dressTypeColumn" prefWidth="87.0" text="Dress Type" />
+                                <TableColumn fx:id="dateRentedColumn" prefWidth="112.0" text="Date Barrowed" />
+                                <TableColumn fx:id="returnRentedColumn" prefWidth="111.0" text="Date Returned" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+                <GridPane GridPane.columnIndex="2">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <AnchorPane>
+                            <children>
+                                <Label layoutX="142.0" layoutY="50.0" prefHeight="59.0" prefWidth="399.0" text="DRESS RENTAL">
+                                    <font>
+                                        <Font name="Leelawadee" size="41.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </GridPane>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>
